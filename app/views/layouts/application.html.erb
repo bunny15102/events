@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Events</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <%= javascript_include_tag 'rails-ujs' %>
+      <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+      }
+      nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+      }
+
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+      }
+      nav ul li a:hover {
+        color: #ccc;
+      }
+      .login-btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+      }
+      .nav-left {
+      order: 10; 
+      }
+    </style>
+  </head>
+
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+      <header>
+        <nav>
+          <ul>
+            <li><a >Events</a></li>
+          </ul>
+        </nav>
+        <nav class="nav-left">
+            <ul>
+            <% unless current_page?(new_user_session_path) || current_page?(new_user_registration_path)  %>
+              <% if user_signed_in? %>
+                <li><%= link_to 'Logout', destroy_user_session_path, method: :delete,class: "login-btn" %></li>
+              <% else %>
+                <li><%= link_to 'Sign in', new_user_session_path, class: "login-btn" %></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </nav>
+      </header>
+    <%= yield %>
+  </body>
+</html>
