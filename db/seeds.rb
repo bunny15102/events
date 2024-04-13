@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Event.create(name: "Event A", notification_enabled: false)
+Event.create(name: "Event B", notification_enabled: true)
+
+puts "Seed data for events created successfully!"

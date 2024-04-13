@@ -69,5 +69,21 @@
         </nav>
       </header>
     <%= yield %>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        var notice = document.querySelector('.notice');
+        var alert = document.querySelector('.alert');
+        if(notice){
+          setTimeout(function(){
+            notice.style.display = 'none';
+          }, 2000); // <-- time in milliseconds, 2000ms = 2s
+        }
+        if(alert){
+          setTimeout(function(){
+            alert.style.display = 'none';
+          }, 2000); // <-- time in milliseconds, 2000ms = 2s
+        }
+      });
+    </script>
   </body>
 </html>

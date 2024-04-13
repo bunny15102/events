@@ -42,8 +42,9 @@
   <h1>Event Page</h1>
   <p>Welcome to the event page!</p>
   <div class="button-container">
-    <a href="#" class="button">Event A</a>
-    <a href="#" class="button">Event B</a>
+    <% @events.each do |event| %>
+      <%= link_to event[:name], create_event_path(event[:id]), method: :post, class: 'button' %>
+    <% end %>
   </div>
 </body>
 </html>
