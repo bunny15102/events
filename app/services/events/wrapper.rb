@@ -9,6 +9,7 @@ module Events
       email_response = nil 
 
       create_event_response = Events::TriggerEvent.new(@user).make_api_call
+      
       if @event.notification_enabled
         email_response = Events::SendEmail.new(@user).make_api_call
       end

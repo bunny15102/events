@@ -26,4 +26,4 @@ COPY Gemfile ./
 #docker build -t event-image .
 
 #Docker run container 
-#docker run -p 3000:3000 -v $(pwd):events
+#docker run -p 3000:3000 -v "{current_directory}:events -d -it event-image
