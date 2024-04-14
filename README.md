@@ -1,24 +1,49 @@
-# README
+# Event Repository Documentation
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repository contains code for the Event application.
 
-Things you may want to cover:
+## Prerequisites
 
-* Ruby version
+Before you start, ensure that you have Docker installed on your system.
 
-* System dependencies
+## Getting Started
 
-* Configuration
+Follow these steps to set up and run the application:
 
-* Database creation
+1. **Build Docker Image**: Build a Docker image for the application.
+    ```
+    docker build -t event-image .
+    ```
 
-* Database initialization
+2. **Run Docker Container**: Run a Docker container with the built image.
+    ```
+    docker run -p 3000:3000 -v "$(pwd):/events" -d -it event-image
+    ```
 
-* How to run the test suite
+3. **Access Container Shell**: Access the shell of the running container.
+    ```
+    docker exec -it <container-id> bash
+    ```
 
-* Services (job queues, cache servers, search engines, etc.)
+4. **Install Dependencies**: Inside the container, install Ruby dependencies using Bundler.
+    ```
+    bundle install
+    ```
 
-* Deployment instructions
+5. **Database Migration**: Run database migrations.
+    ```
+    rails db:migrate
+    ```
 
-* ...
+6. **Seed Database**: Seed the database with initial data.
+    ```
+    rails db:seed
+    ```
+
+7. **Start Server**: Start the Rails server.
+    ```
+    rails s -p 3000 -b 0.0.0.0
+    ```
+
+8. **Access Application**: Open your web browser and navigate to [http://localhost:3000](http://localhost:3000).
+
