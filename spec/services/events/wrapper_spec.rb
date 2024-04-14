@@ -1,4 +1,3 @@
-# spec/services/events/wrapper_spec.rb
 require 'rails_helper'
 
 RSpec.describe Events::Wrapper do
