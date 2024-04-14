@@ -1,4 +1,4 @@
-if Rails.env.development?
+if Rails.env.development? or Rails.env.test?
   require 'webmock'
   include WebMock::API
   WebMock.enable!
